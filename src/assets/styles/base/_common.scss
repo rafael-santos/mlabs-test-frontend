@@ -1,4 +1,6 @@
 html {
+  background-color: var(--color-neutral-gray-lightest);
+  color: var(--color-neutral-gray-darkest);
   font-family: $default-font-family;
   font-size: $default-font-size;
   -webkit-font-smoothing: antialiased;
