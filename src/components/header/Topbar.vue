@@ -2,9 +2,14 @@
   <div class="topbar">
     <div class="container">
      <div class="row align-items-center topbar__row">
-        <div class="col text-left">Data</div>
-        <div class="col text-center">Minha conta</div>
-        <div class="col text-right">Opções</div>
+        <div class="col text-left">15/11/2019 19:00:00</div>
+        <div class="col text-center">
+          <span>Minha conta</span>
+          <i class="fas fa-chevron-down"></i>
+        </div>
+        <div class="col text-right">
+          <i class="fas fa-cog"></i>
+        </div>
       </div>
     </div>
   </div>
@@ -21,4 +26,6 @@
 .topbar__row {
   min-height: 32px;
 }
+
+
 </style>
