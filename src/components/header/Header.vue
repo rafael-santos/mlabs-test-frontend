@@ -8,7 +8,7 @@
 </template>
 
 <script>
-import Topbar from "@/components/header/Topbar.vue";
+import Topbar from '@/components/header/Topbar.vue';
 
 export default {
   components: {
