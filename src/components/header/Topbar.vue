@@ -5,10 +5,10 @@
         <div class="col text-left">15/11/2019 19:00:00</div>
         <div class="col text-center">
           <span>Minha conta</span>
-          <i class="fas fa-chevron-down"></i>
+          <i class="fas fa-chevron-down ml-2"></i>
         </div>
         <div class="col text-right">
-          <i class="fas fa-cog"></i>
+          <i class="fas fa-cog topbar__settings-icon"></i>
         </div>
       </div>
     </div>
@@ -27,5 +27,7 @@
   min-height: 32px;
 }
 
-
+.topbar__settings-icon {
+  font-size: rem(16);
+}
 </style>
