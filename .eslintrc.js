@@ -1,13 +1,13 @@
 /*eslint-env node*/
 module.exports = {
-  "parserOptions": {
-    "ecmaVersion": 6,
-    "sourceType": "module"
+  'parserOptions': {
+    'ecmaVersion': 6,
+    'sourceType': 'module'
   },
-  "env": {
-    "browser": true,
-    "commonjs": true,
-    "jquery": true
+  'env': {
+    'browser': true,
+    'commonjs': true,
+    'jquery': true
   },
   'rules': {
     'camelcase': 2,
@@ -30,5 +30,8 @@ module.exports = {
     'no-void': 2,
     'quotes': [2, 'single'],
     'semi': [2, 'always']
+  },
+  'globals': {
+    process: 'readonly',
   }
 };
