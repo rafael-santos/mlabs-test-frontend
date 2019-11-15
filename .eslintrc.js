@@ -9,6 +9,9 @@ module.exports = {
     'commonjs': true,
     'jquery': true
   },
+  'extends': [
+    'plugin:vue/recommended'
+  ],
   'rules': {
     'camelcase': 2,
     'comma-dangle': [2, 'never'],
@@ -32,6 +35,6 @@ module.exports = {
     'semi': [2, 'always']
   },
   'globals': {
-    process: 'readonly',
+    process: 'readonly'
   }
 };
