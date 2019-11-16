@@ -1,0 +1,14 @@
+@font-face {
+  font-family: primeregular;
+  src: url('../fonts/Prime-Regular.eot');
+  src: url('../fonts/Prime-Regular.eot?#iefix') format('embedded-opentype'),
+    url('../fonts/Prime-Regular.woff2') format('woff2'),
+    url('../fonts/Prime-Regular.woff') format('woff'),
+    url('../fonts/Prime-Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+}
+
+.font-prime-regular {
+  font-family: primeregular;
+}
