@@ -6,38 +6,41 @@
         <div class="col pl-3 pl-lg-0">
           <img class="navbar__logo" src="@/assets/images/mlabs-logo.svg" />
         </div>
-        <!-- Mobile menu button -->
-        <div class="col-auto text-right d-lg-none">
-          <button class="navbar__menu-button" onclick="void(0);">
-            <i class="fas fa-bars"></i>
-          </button>
-        </div>
-        <!-- Desktop menu items -->
-        <div class="col-auto">
-          <div class="row no-gutters align-items-center">
-            <div class="col d-none d-lg-flex">
-              <NavbarItem to="/" label="Dashboard" icon="dashboard.svg" />
-            </div>
-            <div class="col d-none d-lg-flex">
-              <NavbarItem to="/new" label="Agendar Post" icon="schedule.svg" />
-            </div>
-            <div class="col d-none d-lg-flex">
-              <NavbarItem to="/schedules" label="Calendário" icon="calendar.svg" />
-            </div>
-            <div class="col d-none d-lg-flex">
-              <NavbarItem to="/inbox" label="Inbox" icon="inbox.svg" />
-            </div>
-            <div class="col d-none d-lg-flex">
-              <NavbarItem to="/feed" label="Feed" icon="feed.svg" />
-            </div>
-            <div class="col d-none d-lg-flex">
-              <NavbarItem to="/workflow" label="Workflow" icon="workflow.svg" />
-            </div>
-            <div class="col d-none d-lg-flex">
-              <NavbarItem to="/monitoring" label="Acompanhamento" icon="monitoring.svg" />
-            </div>
-            <div class="col d-none d-lg-flex">
-              <NavbarItem to="/reports" label="Relatórios" icon="reports.svg" />
+
+        <div class="col-auto text-right">
+          <div class="navbar__menu-toggle" onclick="void(0);">
+            <!-- Mobile menu button -->
+            <button class="navbar__menu-button d-lg-none">
+              <i class="fas fa-bars"></i>
+            </button>
+            <!-- Mobile and Desktop menu items -->
+            <div class="navbar__menu-items">
+              <div class="row no-gutters align-items-center">
+                <div class="col-lg">
+                  <NavbarItem to="/" label="Dashboard" icon="dashboard.svg" />
+                </div>
+                <div class="col-lg">
+                  <NavbarItem to="/new" label="Agendar Post" icon="schedule.svg" />
+                </div>
+                <div class="col-lg">
+                  <NavbarItem to="/schedules" label="Calendário" icon="calendar.svg" />
+                </div>
+                <div class="col-lg">
+                  <NavbarItem to="/inbox" label="Inbox" icon="inbox.svg" />
+                </div>
+                <div class="col-lg">
+                  <NavbarItem to="/feed" label="Feed" icon="feed.svg" />
+                </div>
+                <div class="col-lg">
+                  <NavbarItem to="/workflow" label="Workflow" icon="workflow.svg" />
+                </div>
+                <div class="col-lg">
+                  <NavbarItem to="/monitoring" label="Acompanhamento" icon="monitoring.svg" />
+                </div>
+                <div class="col-lg">
+                  <NavbarItem to="/reports" label="Relatórios" icon="reports.svg" />
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -69,10 +72,6 @@ export default {
   margin: 10px 0;
 }
 
-.navbar:hover .navbar__logo {
-  height: 62px;
-}
-
 .navbar__menu-button {
   @include button-reset;
 
@@ -80,5 +79,32 @@ export default {
   min-height: 64px;
   min-width: 64px;
   text-align: center;
+}
+
+.navbar__menu-items {
+  background-color: var(--color-neutral-white);
+  border-top: 1px solid var(--color-neutral-gray-light);
+  box-shadow: 0 5px 10px var(--color-neutral-gray-light);
+  display: none;
+
+  @media (min-width: $screen-md-min) {
+    box-shadow: none;
+    display: flex;
+  }
+}
+
+@media (max-width: $screen-sm-max) {
+  .navbar__menu-toggle:hover .navbar__menu-items {
+    display: block;
+    position: fixed;
+    left: 0;
+    right: 0;
+  }
+}
+
+@media (min-width: $screen-md-min) {
+  .navbar:hover .navbar__logo {
+    height: 62px;
+  }
 }
 </style>

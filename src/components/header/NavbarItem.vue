@@ -1,12 +1,16 @@
 <template>
   <router-link :to="`${to}`" active-class="navbar-item--active" class="navbar-item">
-    <div class="navbar-item__icon">
-      <inline-svg :src="require(`@/assets/images/menu/${icon}`)" />
+    <div class="row no-gutters align-items-center justify-content-center d-lg-block">
+      <div class="col-auto d-lg-block">
+        <div class="navbar-item__icon">
+          <inline-svg :src="require(`@/assets/images/menu/${icon}`)" />
+        </div>
+      </div>
+      <div class="col d-lg-block">
+        <div class="navbar-item__label">{{ label }}</div>
+      </div>
     </div>
-    <div class="navbar-item__label">{{ label }}</div>
   </router-link>
-  <!-- <router-link to="/">Home</router-link> |
-  <router-link to="/about">About</router-link>-->
 </template>
 
 <script>
@@ -29,11 +33,20 @@ export default {
   @include all-ease;
 
   color: inherit;
-  height: 64px;
-  padding: 15px 18px;
+  display: block;
   overflow: hidden;
+  padding: 8px;
   text-align: center;
   text-decoration: none;
+
+  @media (min-width: $screen-md-min) {
+    height: 64px;
+    padding: 15px 10px;
+  }
+
+  @media (min-width: $screen-lg-min) {
+    padding: 15px 18px;
+  }
 }
 
 .navbar-item--active {
@@ -47,20 +60,34 @@ export default {
 .navbar-item__label {
   @include all-ease;
 
-  opacity: 0;
   font-family: $default-font-family;
+  font-size: rem(12);
+  opacity: 0;
+  padding-left: 10px; 
+  text-align: left;
   white-space: nowrap;
+
+  @media (min-width: $screen-md-min) {
+    padding-left: 0;
+    text-align: inherit;
+  }
+
+  @media (min-width: $screen-lg-min) {
+    font-size: rem(16);
+  }
 }
 
 .navbar:hover {
   .navbar-item {
-    height: 86px;
+    @media (min-width: $screen-md-min) {
+       height: 86px;
+    }
   }
 
   .navbar-item__label {
     opacity: 1;
   }
-} 
+}
 
 .navbar-item:hover,
 .navbar-item--active {
