@@ -32,7 +32,7 @@ export default {
 .navbar-item {
   @include all-ease;
 
-  color: inherit;
+  color: var(--color-neutral-gray-dark);
   display: block;
   overflow: hidden;
   padding: 8px;
@@ -54,17 +54,19 @@ export default {
 }
 
 .navbar-item__icon {
-  color: var(--color-neutral-gray-dark);
+  color: var(--color-neutral-gray-clear);
+  font-size: 0;
 }
 
 .navbar-item__label {
   @include all-ease;
 
-  font-family: $default-font-family;
-  font-size: rem(12);
+  font-family: $prime-family;
+  font-size: rem(13);
   opacity: 0;
   padding-left: 10px; 
   text-align: left;
+  text-transform: uppercase;
   white-space: nowrap;
 
   @media (min-width: $screen-md-min) {
@@ -73,7 +75,7 @@ export default {
   }
 
   @media (min-width: $screen-lg-min) {
-    font-size: rem(16);
+    margin-top: 5px;
   }
 }
 

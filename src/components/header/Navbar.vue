@@ -88,6 +88,7 @@ export default {
   display: none;
 
   @media (min-width: $screen-md-min) {
+    border-top: 0;
     box-shadow: none;
     display: flex;
   }
