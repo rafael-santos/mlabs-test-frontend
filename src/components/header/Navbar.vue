@@ -20,7 +20,7 @@
                   <NavbarItem to="/" label="Dashboard" icon="dashboard.svg" />
                 </div>
                 <div class="col-lg">
-                  <NavbarItem to="/new" label="Agendar Post" icon="schedule.svg" />
+                  <NavbarItem to="/new" label="Agendar Post" icon="schedule.svg" :newItem="true"/>
                 </div>
                 <div class="col-lg">
                   <NavbarItem to="/schedules" label="Calendário" icon="calendar.svg" />
@@ -105,7 +105,7 @@ export default {
 
 @media (min-width: $screen-md-min) {
   .navbar:hover .navbar__logo {
-    height: 62px;
+    height: 56px;
   }
 }
 </style>

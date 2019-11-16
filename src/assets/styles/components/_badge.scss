@@ -1,0 +1,12 @@
+.badge {
+  border-radius: 10px;
+  font-size: 9px;
+  line-height: 10px;
+  padding: 3px 5px;
+  text-transform: uppercase;
+}
+
+.badge--secondary {
+  background-color: var(--color-brand-secondary-pure);
+  color: var(--color-neutral-white);
+}

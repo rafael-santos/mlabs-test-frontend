@@ -10,6 +10,7 @@
         <div class="navbar-item__label">{{ label }}</div>
       </div>
     </div>
+    <span v-if="newItem" class="badge badge--secondary navbar-item__badge">Novo</span>
   </router-link>
 </template>
 
@@ -20,7 +21,8 @@ export default {
   props: {
     to: String,
     label: String,
-    icon: String
+    icon: String,
+    newItem: Boolean
   },
   components: {
     InlineSvg
@@ -36,6 +38,7 @@ export default {
   display: block;
   overflow: hidden;
   padding: 8px;
+  position: relative;
   text-align: center;
   text-decoration: none;
 
@@ -99,6 +102,21 @@ export default {
 
   .navbar-item__label {
     color: var(--color-brand-primary-pure);
+  }
+}
+
+.navbar-item__badge {
+  position: absolute;
+  right: 16px;
+  top: 50%;
+  transform: translateY(-50%);
+
+  @media (min-width: $screen-md-min) {
+    left: 50%;
+    margin-left: 19px;
+    right: initial;
+    top: 15px;
+    transform: translateY(0);
   }
 }
 </style>
