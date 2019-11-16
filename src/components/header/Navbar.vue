@@ -1,11 +1,13 @@
 <template>
   <div class="navbar">
-    <div class="row align-items-center">
+    <div class="row no-gutters align-items-center">
       <div class="col-auto">
         <img src="@/assets/images/mlabs-logo.svg"/>
       </div>
       <div class="col text-right d-lg-none">
-        <i class="fas fa-bars navbar__menu-icon"></i>
+        <button class="navbar__menu-button" onclick="void(0);">
+          <i class="fas fa-bars"></i>
+        </button>
       </div>
     </div>
     <!-- <router-link to="/">Home</router-link> |
@@ -19,7 +21,12 @@
   border-bottom: 1px solid var(--color-neutral-gray-light);
 }
 
-.navbar__menu-icon {
+.navbar__menu-button {
+  @include button-reset;
+  
   font-size: rem(22);
+  min-height: 64px;
+  min-width: 64px;
+  text-align: center;
 }
 </style>

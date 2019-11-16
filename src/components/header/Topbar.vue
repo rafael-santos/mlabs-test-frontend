@@ -32,9 +32,8 @@
 }
 
 .topbar__settings-button {
-  background-color: transparent;
-  border: 0;
-  color: inherit;
+  @include button-reset;
+  
   font-size: rem(16);
   min-height: 32px;
   min-width: 42px;
