@@ -3,10 +3,12 @@ import { library, dom } from '@fortawesome/fontawesome-svg-core';
 // Solid
 import { faCog } from '@fortawesome/free-solid-svg-icons/faCog';
 import { faChevronDown } from '@fortawesome/free-solid-svg-icons/faChevronDown';
+import { faBars } from '@fortawesome/free-solid-svg-icons/faBars';
 
 library.add(
   faCog,
-  faChevronDown
+  faChevronDown,
+  faBars
 );
 
 // Brands
