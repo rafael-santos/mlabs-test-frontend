@@ -1,12 +1,16 @@
 <template>
   <div class="dashboard-view-container">
     <div class="container">
-        <div class="row no-gutters align-items-stretch">
-        <template v-for="(channel, index) in socialNetworks">
+      <div class="row no-gutters align-items-stretch">
+        <template v-for="(channel, index) in socialChannels">
           <div :key="`widget-${index}`" class="col-md-4 col-lg-3 col-xl social-widget-col">
             <SocialWidget />
           </div>
-          <div :key="`separator-${index}`" v-if="(index + 1) % 5 === 0" class="w-100 d-none d-xl-block"></div>
+          <div
+            :key="`separator-${index}`"
+            v-if="(index + 1) % 5 === 0"
+            class="w-100 d-none d-xl-block"
+          ></div>
         </template>
       </div>
     </div>
@@ -14,31 +18,18 @@
 </template>
 
 <script>
+import { mapState } from 'vuex';
+
 import SocialWidget from '@/components/social_widget/SocialWidget.vue';
 
 export default {
   components: {
     SocialWidget
   },
-  data() {
-    return {
-      socialNetworks: [
-        { channelKey: 'facebook', name: 'Facebook' },
-        { channelKey: 'twitter', name: 'Twitter' },
-        { channelKey: 'instagram', name: 'Instagram' },
-        { channelKey: 'google_my_business', name: 'Google meu negócio' },
-        { channelKey: 'pinterest', name: 'Pinterest' },
-        { channelKey: 'linkedin', name: 'Linkedin' },
-        { channelKey: 'youtube', name: 'Youtube' },
-        { channelKey: 'whatsapp', name: 'WhatsApp' },
-        { channelKey: 'whatsapp', name: 'WhatsApp' },
-        { channelKey: 'whatsapp', name: 'WhatsApp' },
-        { channelKey: 'whatsapp', name: 'WhatsApp' },
-        { channelKey: 'whatsapp', name: 'WhatsApp' },
-        { channelKey: 'whatsapp', name: 'WhatsApp' },
-        { channelKey: 'google_analytics', name: 'Google Analytics' }
-      ]
-    };
+  computed: {
+    socialChannels() {
+      return this.$store.state.socialChannels;
+    }
   }
 };
 </script>
