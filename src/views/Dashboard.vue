@@ -3,10 +3,10 @@
     <div class="container">
         <div class="row no-gutters align-items-stretch">
         <template v-for="(channel, index) in socialNetworks">
-          <div :key="index" class="col-md-4 col-lg-3 col-xl social-widget-col">
+          <div :key="`widget-${index}`" class="col-md-4 col-lg-3 col-xl social-widget-col">
             <SocialWidget />
           </div>
-          <div :key="index" v-if="(index + 1) % 5 === 0" class="w-100 d-none d-xl-block"></div>
+          <div :key="`separator-${index}`" v-if="(index + 1) % 5 === 0" class="w-100 d-none d-xl-block"></div>
         </template>
       </div>
     </div>
