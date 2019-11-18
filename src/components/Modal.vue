@@ -10,7 +10,7 @@
             type="button"
             class="modal__close"
             @click="close"
-            aria-label="Close modal"
+            aria-label="Fechar janela"
           >
             <i class="fas fa-times"></i>
           </button>
@@ -24,9 +24,9 @@
           <slot name="footer">
             <button
               type="button"
-              class="btn"
+              class="btn btn--default"
               @click="close"
-              aria-label="Close modal"
+              aria-label="Fechar janela"
             >
               Cancelar
             </button>
@@ -94,7 +94,7 @@ export default {
     box-sizing: content-box;
     color: var(--color-neutral-black);
     font-size: 20px;
-    margin: -10px -10px -10px 0;
+    margin: -10px -10px -10px 16px;
     opacity: 0.8;
     padding: 10px;
   }
