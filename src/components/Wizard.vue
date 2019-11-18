@@ -4,19 +4,20 @@
 <template>
   <div class="wizard">
     <ul class="wizard__steps">
-      <li class="wizard__step"
+      <li
+        class="wizard__step"
         :class="{
           'active': currentStep >= index,
         }"
         :style="wizardStepStyle"
-        v-for="(step, index) of steps" :key="index">
+        v-for="(step, index) of steps"
+        :key="index"
+      >
         <div class="wizard__step__indicator">
           <span class="wizard__step__line"></span>
           <span class="wizard__step__dot"></span>
         </div>
-        <div class="wizard__step__label">
-          {{step.label}}
-        </div>
+        <div class="wizard__step__label">{{step.label}}</div>
       </li>
     </ul>
     <div ref="wizard-body">
@@ -52,7 +53,9 @@ export default {
       const stepSize = 100 / this.steps.length;
       const currentStepStart = stepSize * this.currentStep;
       const currentStepMiddle = currentStepStart + stepSize / 2;
-      if (this.steps.length === 1) { return `calc(${currentStepMiddle}%)`; }
+      if (this.steps.length === 1) {
+        return `calc(${currentStepMiddle}%)`;
+      }
       return `calc(${currentStepMiddle}% - 14px)`;
     },
     currentSlot() {
@@ -71,7 +74,7 @@ export default {
         }
       }
       if (this.currentStep < this.steps.length - 1) {
-        this.currentStep++;
+        this.currentStep += 1;
       }
     },
     goBack(skipFunction) {
@@ -82,14 +85,12 @@ export default {
         }
       }
       if (this.currentStep > 0) {
-        this.currentStep--;
+        this.currentStep -= 1;
       }
     },
 
     goTo(step) {
-      if (Number.isInteger(step)
-        && step < this.steps.length
-        && step >= 0) {
+      if (Number.isInteger(step) && step < this.steps.length && step >= 0) {
         this.currentStep = step;
       }
     }
@@ -102,31 +103,31 @@ export default {
 *******************************/
 .wizard {
   position: relative;
-  width:  100%;
+  width: 100%;
 }
 
-.wizard__steps{
-  list-style-type:  none;
+.wizard__steps {
+  list-style-type: none;
   text-align: justify;
   -ms-text-justify: distribute-all-lines;
   text-justify: distribute-all-lines;
-  padding:  0;
+  padding: 0;
   margin: 30px 0;
-  position:  relative;
+  position: relative;
 }
 
 .stretch {
   width: 100%;
   display: inline-block;
   font-size: 0;
-  line-height: 0
+  line-height: 0;
 }
 
 .wizard__step {
   vertical-align: bottom;
   display: inline-block;
   text-align: center;
-  position:  relative;
+  position: relative;
 }
 
 .wizard__step__indicator {
@@ -137,27 +138,27 @@ export default {
   background-color: var(--color-neutral-gray-light);
   border-radius: 50%;
   box-sizing: content-box;
-  display:  block;
-  height:  11px;
-  left:  50%;
-  position:  relative;
+  display: block;
+  height: 11px;
+  left: 50%;
+  position: relative;
   transform: translateX(-50%);
-  width:  11px;
+  width: 11px;
   z-index: 1;
 }
 
 .wizard__step__line {
   background-color: var(--color-neutral-gray-light);
-  bottom:  12px;
-  height:  2px;
+  bottom: 12px;
+  height: 2px;
   position: absolute;
-  right:  100%;
+  right: 100%;
   top: 50%;
   transform: translateX(50%) translateY(-50%);
-  width:  calc(100% - 18px);
+  width: calc(100% - 18px);
 }
 
-.wizard__step:first-child .wizard__step__line{
+.wizard__step:first-child .wizard__step__line {
   display: none;
 }
 
@@ -170,7 +171,7 @@ export default {
 }
 
 .wizard__step__label {
-  color:  #98a4af;
+  color: #98a4af;
   font-size: rem(12);
   margin-top: 8px;
 }

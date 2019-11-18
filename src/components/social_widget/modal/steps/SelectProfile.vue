@@ -4,21 +4,27 @@
       <p class="select-profile__title">Selecione o perfil que deseja gerenciar</p>
       <p class="select-profile__text">A página que procura não está sendo exibida abaixo?</p>
       <a href="" class="select-profile__text d-block">
-        Clique aqui e certifique-se de que as permissões de acesso e gerenciamento dessa página tenham sido concedidas.
+        Clique aqui e certifique-se de que as permissões de acesso
+        e gerenciamento dessa página tenham sido concedidas.
       </a>
     </div>
     <ul class="select-profile-list">
       <li v-for="(profile, index) in profiles" :key="index" class="select-profile-list__item">
         <label class="d-flex align-items-center">
-          <input type="radio" name="selected_profile_id" v-model="selectedProfile" :value="profile" @change="selectProfile"/>
-          <div class="select-profile-list__item-picture" :style="profile.picture ? `background-image: url('${profile.picture}')` : ''"></div>
+          <input type="radio" name="selected_profile_id"
+            v-model="selectedProfile"
+            :value="profile"
+            @change="selectProfile"/>
+          <div class="select-profile-list__item-picture"
+            :style="profile.picture ? `background-image: url('${profile.picture}')` : ''"></div>
           <div class="text-left">
             <div class="select-profile-list__item-name">{{ profile.name }}</div>
             <div class="select-profile-list__item-url">{{ profile.url }}</div>
           </div>
         </label>
       </li>
-      <li v-if="!profiles.length" class="select-profile-list__item select-profile-list__item--disabled">
+      <li v-if="!profiles.length"
+        class="select-profile-list__item select-profile-list__item--disabled">
         <div class="select-profile-list__item-name">Nenhum perfil encontrado</div>
       </li>
     </ul>

@@ -3,7 +3,8 @@
     <template slot='header'>
       <div class="d-inline-block">
         <div class="d-flex align-items-center">
-          <div class="social-widget-modal__header-icon-container" :class="`social-widget-modal__header-icon-container--${channel.channelKey}`">
+          <div class="social-widget-modal__header-icon-container"
+            :class="`social-widget-modal__header-icon-container--${channel.channelKey}`">
             <inline-svg :src="require(`@/assets/images/social_channels/${channel.channelKey}.svg`)"
               class="social-widget-modal__header-icon"/>
           </div>
