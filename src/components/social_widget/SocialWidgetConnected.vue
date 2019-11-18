@@ -41,40 +41,10 @@ export default {
   z-index: 1;
 }
 
-.social-widget-connected--facebook {
-  background-color: var(--color-social-facebook); 
-}
-
-.social-widget-connected--twitter {
-  background-color: var(--color-social-twitter); 
-}
-
-.social-widget-connected--instagram {
-  background: var(--gradient-social-instagram); 
-}
-
-.social-widget-connected--google-my-business {
-  background: var(--gradient-social-google-my-business); 
-}
-
-.social-widget-connected--pinterest {
-  background-color: var(--color-social-pinterest); 
-}
-
-.social-widget-connected--linkedin {
-  background-color: var(--color-social-linkedin); 
-}
-
-.social-widget-connected--youtube {
-  background-color: var(--color-social-youtube); 
-}
-
-.social-widget-connected--whatsapp {
-  background: var(--gradient-social-whatsapp); 
-}
-
-.social-widget-connected--google-analytics {
-  background-color: var(--color-social-google-analytics); 
+@each $channel in $social-channels {
+  .social-widget-connected--#{$channel}{
+    @include social-background-color($channel);
+  }
 }
 
 .social-widget-connected__header {

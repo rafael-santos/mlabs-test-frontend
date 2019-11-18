@@ -34,3 +34,14 @@ $screen-md-max: $screen-lg-min - 1 !default;
 
 $z-index: ();
 $z-index: map-merge($z-index, (modal-backdrop: 100));
+
+$social-channels:
+  'facebook',
+  'twitter',
+  'instagram',
+  'google-my-business',
+  'pinterest',
+  'linkedin',
+  'youtube',
+  'whatsapp',
+  'google-analytics';

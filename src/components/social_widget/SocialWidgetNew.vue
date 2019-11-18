@@ -71,40 +71,10 @@ export default {
   text-align: center;
 }
 
-.social-widget-new__icon-container--facebook {
-  background-color: var(--color-social-facebook); 
-}
-
-.social-widget-new__icon-container--twitter {
-  background-color: var(--color-social-twitter); 
-}
-
-.social-widget-new__icon-container--instagram {
-  background: var(--gradient-social-instagram); 
-}
-
-.social-widget-new__icon-container--google-my-business {
-  background: var(--gradient-social-google-my-business); 
-}
-
-.social-widget-new__icon-container--pinterest {
-  background-color: var(--color-social-pinterest); 
-}
-
-.social-widget-new__icon-container--linkedin {
-  background-color: var(--color-social-linkedin); 
-}
-
-.social-widget-new__icon-container--youtube {
-  background-color: var(--color-social-youtube); 
-}
-
-.social-widget-new__icon-container--whatsapp {
-  background: var(--gradient-social-whatsapp); 
-}
-
-.social-widget-new__icon-container--google-analytics {
-  background-color: var(--color-social-google-analytics); 
+@each $channel in $social-channels {
+  .social-widget-new__icon-container--#{$channel}{
+    @include social-background-color($channel);
+  }
 }
 
 .social-widget-new__icon {
