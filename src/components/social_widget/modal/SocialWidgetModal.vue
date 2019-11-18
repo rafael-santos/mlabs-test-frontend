@@ -1,5 +1,5 @@
 <template>
-  <modal ref="modal" class="social-widget-modal" :dialogCustomClass="'social-widget-dialog'">
+  <modal ref="modal" class="social-widget-modal">
     <template slot='header'>
       <div class="d-inline-block">
         <div class="d-flex align-items-center">
@@ -19,14 +19,10 @@
         :onNext="nextClicked" 
         :onBack="backClicked">
         <div slot="step-1">
-          <h4>Step 1</h4>
+          <SelectProfile :channel="channel"/>
         </div>
         <div slot="step-2">
-          <div class="text-center">
-            <p class="social-widget-modal__body-title">Selecione o perfil que deseja gerenciar</p>
-            <p class="social-widget-modal__body-text">A página que procura não está sendo exibida abaixo?</p>
-            <a href="" class="social-widget-modal__body-text d-block">Clique aqui e certifique-se de que as permissões de acesso e gerenciamento dessa página tenham sido concedidas.</a>
-          </div>
+          <h4>Step 2</h4>
         </div>
         <div slot="step-3">
           <h4>Step 3</h4>
@@ -48,6 +44,7 @@
 <script>
 import InlineSvg from 'vue-inline-svg';
 import Modal from '@/components/Modal.vue';
+import SelectProfile from '@/components/social_widget/modal/steps/SelectProfile.vue';
 import Wizard from '@/components/Wizard.vue';
 
 export default {
@@ -59,6 +56,7 @@ export default {
   components: {
     InlineSvg,
     Modal,
+    SelectProfile,
     Wizard
   },
   data(){
@@ -91,9 +89,6 @@ export default {
       console.log('back clicked', currentPage);
       return true; //return false if you want to prevent moving to previous page
     }
-  },
-  mounted() {
-    this.$refs.wizard.goTo(1);
   }
 };
 </script>
@@ -119,16 +114,6 @@ export default {
 
   color: var(--color-neutral-white);
 }
-
-.social-widget-modal__body-title {
-  font-size: rem(20);
-}
-
-.social-widget-modal__body-text {
-  font-size: rem(14);
-  margin: rem(8) 0;
-}
-
 </style>
 
 <style lang="scss">

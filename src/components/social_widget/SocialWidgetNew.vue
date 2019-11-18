@@ -18,7 +18,7 @@
 
 <script>
 import InlineSvg from 'vue-inline-svg';
-import SocialWidgetModal from '@/components/social_widget/SocialWidgetModal.vue';
+import SocialWidgetModal from '@/components/social_widget/modal/SocialWidgetModal.vue';
 
 export default {
   props: {
