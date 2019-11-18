@@ -12,6 +12,10 @@ library.add(
 );
 
 // Brands
+import { faQuestionCircle } from '@fortawesome/free-regular-svg-icons/faQuestionCircle';
+library.add(faQuestionCircle);
+
+// Brands
 import { faWhatsapp } from '@fortawesome/free-brands-svg-icons/faWhatsapp';
 library.add(faWhatsapp);
 

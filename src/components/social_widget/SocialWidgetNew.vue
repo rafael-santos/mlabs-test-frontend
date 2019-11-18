@@ -4,6 +4,7 @@
     <div :class="`social-widget-new__icon-container social-widget-new__icon-container--${channel.channelKey}`">
       <inline-svg :src="require(`@/assets/images/social_channels/${channel.channelKey}.svg`)"
         class="social-widget-new__icon"/>
+      <i class="far fa-question-circle social-widget-new__help-icon"></i>
     </div>
     <div class="social-widget-new__name my-3">{{ channel.name }}</div>
     <button class="btn btn--primary">
@@ -48,6 +49,7 @@ export default {
   @include circle(60px);
   @include flex-centered;
 
+  position: relative;
   text-align: center;
 }
 
@@ -89,6 +91,16 @@ export default {
 
 .social-widget-new__icon {
   color: var(--color-neutral-white);
+}
+
+.social-widget-new__help-icon {
+  color: var(--color-neutral-gray-pure);
+  cursor: pointer;
+  font-size: rem(22);
+  position: absolute;
+  left: calc(100% + 16px);
+  top: 50%;
+  transform: translateY(-50%);
 }
 
 .social-widget-new__name {
