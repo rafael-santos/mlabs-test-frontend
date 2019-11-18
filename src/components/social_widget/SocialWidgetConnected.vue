@@ -26,8 +26,19 @@ export default {
 <style lang="scss" scoped>
 .social-widget-connected {
   color: var(--color-neutral-white);
+  cursor: pointer;
   height: 100%;
   min-height: 218px;
+}
+
+.social-widget-connected:hover {
+  @include all-ease;
+
+  box-sizing: content-box;
+  box-shadow: 0px 0px 10px 2px rgba(0,0,0,0.2);
+  position: relative;
+  transform: scale(1.14);
+  z-index: 1;
 }
 
 .social-widget-connected--facebook {
