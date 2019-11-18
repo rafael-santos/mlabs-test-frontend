@@ -2,7 +2,7 @@ export default {
   saveProfiles: (state, profiles) => {
     state.profiles = profiles;
   },
-  addConnectedProfileToStore: (state, profile) => {
+  saveConnectedProfile: (state, profile) => {
     state.connectedProfiles.push(profile);
   }
 };

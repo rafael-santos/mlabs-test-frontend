@@ -86,15 +86,17 @@ export default {
     selectProfile(profile) {
       this.selectedProfile = profile;
     },
-    connectProfile({ channel_key: channelKey, ...data }) {
+    connectProfile() {
+      const { channel_key: channelKey, ...data } = this.selectedProfile;
       const  profile = {
         ...data,
         channelKey
       };
 
-      this.addProfilesToStore(profile);
+      this.addConnectedProfileToStore(profile);
+      this.$refs.modal.close();
     },
-    ...mapActions(['addProfilesToStore'])
+    ...mapActions(['addConnectedProfileToStore'])
   }
 };
 </script>
