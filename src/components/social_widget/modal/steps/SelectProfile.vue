@@ -11,14 +11,15 @@
       <li v-for="(profile, index) in profiles" :key="index" class="select-profile-list__item">
         <label class="d-flex align-items-center">
           <input type="radio" name="selected_profile_id" :value="profile.id"/>
-          <div class="select-profile-list__item-picture" :style="profile.picture ? `background-image: url('${profile.picture}')` : ''">
-
-          </div>
+          <div class="select-profile-list__item-picture" :style="profile.picture ? `background-image: url('${profile.picture}')` : ''"></div>
           <div class="text-left">
             <div class="select-profile-list__item-name">{{ profile.name }}</div>
             <div class="select-profile-list__item-url">{{ profile.url }}</div>
           </div>
         </label>
+      </li>
+      <li v-if="!profiles.length" class="select-profile-list__item select-profile-list__item--disabled">
+        <div class="select-profile-list__item-name">Nenhum perfil encontrado</div>
       </li>
     </ul>
   </div>
@@ -34,18 +35,6 @@ export default {
   computed: {
     profiles: function() {
       return this.$store.getters.profilesByChannel(this.channel.channelKey);
-    }
-  },
-  watch: {
-    profiles(newValue, oldValue) {
-      console.log(`Updating from ${oldValue} to ${newValue}`);
-
-      // Do whatever makes sense now
-      if (newValue === 'success') {
-        this.complex = {
-          deep: 'some deep object'
-        };
-      }
     }
   }
 };
@@ -79,8 +68,14 @@ $list-border: 1px solid var(--color-neutral-gray-light);
   padding: 16px;
 }
 
-.select-profile-list__item:hover {
+.select-profile-list__item:not(.select-profile-list__item--disabled):hover {
   background-color: var(--color-support-info-clear);
+}
+
+.select-profile-list__item--disabled {
+  color: var(--color-font-soft);
+  cursor: default;
+  text-align: center;
 }
 
 .select-profile-list__item + .select-profile-list__item {
