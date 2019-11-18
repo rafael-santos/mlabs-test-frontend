@@ -12,28 +12,26 @@
         Adicionar
       </button>
     </div>
-    <modal v-show="isModalVisible" @close="closeModal">
-      <div slot='header'>Nome da modal</div>
-    </modal>
+    <SocialWidgetModal v-show="isModalVisible" :channel="channel" :close="closeModal"/>
   </div>
 </template>
 
 <script>
 import InlineSvg from 'vue-inline-svg';
-import Modal from '@/components/Modal.vue';
+import SocialWidgetModal from '@/components/social_widget/SocialWidgetModal.vue';
 
 export default {
   props: {
     channel: Object
   },
-  data () {
+  components: {
+    InlineSvg,
+    SocialWidgetModal
+  },
+  data() {
     return {
       isModalVisible: false
     };
-  },
-  components: {
-    InlineSvg,
-    Modal
   },
   methods: {
     showModal() {
