@@ -93,7 +93,7 @@ export default {
 
       this.addProfilesToStore(profile);
     },
-    addProfilesToStore: mapActions(['addProfilesToStore']).addProfilesToStore
+    ...mapActions(['addProfilesToStore'])
   }
 };
 </script>

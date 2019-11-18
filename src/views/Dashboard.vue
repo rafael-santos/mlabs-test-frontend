@@ -30,7 +30,7 @@ export default {
     ...mapState(['socialChannels'])
   },
   methods: {
-    addProfilesToStore: mapActions(['addProfilesToStore']).addProfilesToStore
+    ...mapActions(['addProfilesToStore'])
   },
   mounted() {
     fetch('https://demo2697181.mockable.io/pages', {

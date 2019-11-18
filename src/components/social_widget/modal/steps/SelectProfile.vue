@@ -39,8 +39,9 @@ export default {
   },
   computed: {
     profiles() {
-      return this.$store.getters.profilesByChannel(this.channel.channelKey);
-    }
+      return this.profilesByChannel(this.channel.channelKey);
+    },
+    ...mapGetters(['profilesByChannel'])
   },
   methods: {
     selectProfile() {
