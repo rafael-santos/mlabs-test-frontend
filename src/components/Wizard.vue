@@ -37,7 +37,7 @@ export default {
     onBack: {}
   },
 
-  data () {
+  data() {
     return {
       currentStep: 0
     };
@@ -45,17 +45,15 @@ export default {
   computed: {
     wizardStepStyle() {
       return {
-        width: `${100/this.steps.length}%`
+        width: `${100 / this.steps.length}%`
       };
     },
     arrowPosition() {
-      var stepSize = 100/this.steps.length;
-      var currentStepStart = stepSize * this.currentStep;
-      var currentStepMiddle = currentStepStart + stepSize/2;
-      if(this.steps.length === 1)
-        return 'calc('+currentStepMiddle+'%)';
-      else
-        return 'calc('+currentStepMiddle+'% - 14px)';
+      const stepSize = 100 / this.steps.length;
+      const currentStepStart = stepSize * this.currentStep;
+      const currentStepMiddle = currentStepStart + stepSize / 2;
+      if (this.steps.length === 1) { return `calc(${currentStepMiddle}%)`; }
+      return `calc(${currentStepMiddle}% - 14px)`;
     },
     currentSlot() {
       return this.steps[this.currentStep].slot;
@@ -65,21 +63,21 @@ export default {
     }
   },
   methods: {
-    goNext (skipFunction) {
-      if (!skipFunction && typeof this.onNext === 'function'){
-        if(!this.onNext(this.currentStep)) {
-          //returned false. don't do anything
+    goNext(skipFunction) {
+      if (!skipFunction && typeof this.onNext === 'function') {
+        if (!this.onNext(this.currentStep)) {
+          // returned false. don't do anything
           return;
         }
       }
-      if (this.currentStep < this.steps.length-1) {
+      if (this.currentStep < this.steps.length - 1) {
         this.currentStep++;
       }
     },
-    goBack (skipFunction) {
-      if (!skipFunction && typeof this.onBack === 'function'){
-        if(!this.onBack(this.currentStep)) {
-          //returned false. don't do anything
+    goBack(skipFunction) {
+      if (!skipFunction && typeof this.onBack === 'function') {
+        if (!this.onBack(this.currentStep)) {
+          // returned false. don't do anything
           return;
         }
       }
@@ -93,14 +91,14 @@ export default {
         && step < this.steps.length
         && step >= 0) {
         this.currentStep = step;
-      } 
+      }
     }
   }
 };
 </script>
 
 <style lang="scss" scoped>
-/* Header Steps 
+/* Header Steps
 *******************************/
 .wizard {
   position: relative;

@@ -33,7 +33,7 @@
 
 .topbar__settings-button {
   @include button-reset;
-  
+
   font-size: rem(16);
   min-height: 32px;
   min-width: 42px;

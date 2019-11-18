@@ -1,5 +1,3 @@
 export default {
-  profilesByChannel: (state) => (channelKey) => {
-    return state.profiles.filter((profile) => profile['channel_key'] === channelKey);
-  }
+  profilesByChannel: state => channelKey => state.profiles.filter(profile => profile.channel_key === channelKey)
 };

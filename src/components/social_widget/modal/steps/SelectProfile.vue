@@ -38,7 +38,7 @@ export default {
     };
   },
   computed: {
-    profiles: function() {
+    profiles() {
       return this.$store.getters.profilesByChannel(this.channel.channelKey);
     }
   },

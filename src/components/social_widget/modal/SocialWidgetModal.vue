@@ -59,7 +59,7 @@ export default {
     SelectProfile,
     Wizard
   },
-  data(){
+  data() {
     return {
       steps: [
         {
@@ -85,7 +85,7 @@ export default {
     selectProfile(profile) {
       this.selectedProfile = profile;
     },
-    connectProfile({ channel_key: channelKey, ...data}) {
+    connectProfile({ channel_key: channelKey, ...data }) {
       const  profile = {
         ...data,
         channelKey

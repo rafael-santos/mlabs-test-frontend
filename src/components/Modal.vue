@@ -56,13 +56,13 @@ export default {
     },
     disablePageScroll() {
       const html = document.querySelector('html');
-      const body = document.body;
+      const { body } = document;
 
       html.style.overflow = body.style.overflow = 'hidden';
     },
-    enablePageScroll(){
+    enablePageScroll() {
       const html = document.querySelector('html');
-      const body = document.body;
+      const { body } = document;
 
       html.style.overflow = body.style.overflow = null;
     }

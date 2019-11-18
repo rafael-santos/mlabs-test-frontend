@@ -1,23 +1,20 @@
-/*eslint-env node*/
 module.exports = {
-  'parserOptions': {
-    'ecmaVersion': 6,
-    'sourceType': 'module'
+  root: true,
+  env: {
+    node: true
   },
-  'env': {
-    'browser': true,
-    'commonjs': true,
-    'jquery': true
-  },
-  'extends': [
-    'plugin:vue/recommended'
+  extends: [
+    'plugin:vue/essential',
+    '@vue/airbnb'
   ],
-  'rules': {
-    'camelcase': 2,
+  rules: {
+    'no-console': process.env.NODE_ENV === 'production' ? 'error' : 'off',
+    'no-debugger': process.env.NODE_ENV === 'production' ? 'error' : 'off',
+    camelcase: 2,
     'comma-dangle': [2, 'never'],
     'comma-style': [2, 'last'],
-    'eqeqeq': 2,
-    'indent': [2, 2, { 'VariableDeclarator': 2 }],
+    eqeqeq: 2,
+    indent: [2, 2, { VariableDeclarator: 2 }],
     'no-eq-null': 2,
     'no-extra-parens': 2,
     'no-extra-semi': 2,
@@ -31,10 +28,21 @@ module.exports = {
     'no-undef': 2,
     'no-underscore-dangle': 0,
     'no-void': 2,
-    'quotes': [2, 'single'],
-    'semi': [2, 'always']
+    quotes: [2, 'single'],
+    semi: [2, 'always']
   },
-  'globals': {
-    process: 'readonly'
-  }
+  parserOptions: {
+    parser: 'babel-eslint'
+  },
+  overrides: [
+    {
+      files: [
+        '**/__tests__/*.{j,t}s?(x)',
+        '**/tests/unit/**/*.spec.{j,t}s?(x)'
+      ],
+      env: {
+        jest: true
+      }
+    }
+  ]
 };

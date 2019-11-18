@@ -36,7 +36,7 @@ export default {
     fetch('https://demo2697181.mockable.io/pages', {
       method: 'get'
     })
-      .then((response) => response.json())
+      .then(response => response.json())
       .then((jsonResponse) => {
         this.addProfilesToStore(jsonResponse.data);
       });

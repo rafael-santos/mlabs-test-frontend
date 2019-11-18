@@ -68,7 +68,7 @@ export default {
   font-family: $prime-family;
   font-size: rem(13);
   opacity: 0;
-  padding-left: 10px; 
+  padding-left: 10px;
   text-align: left;
   text-transform: uppercase;
   white-space: nowrap;

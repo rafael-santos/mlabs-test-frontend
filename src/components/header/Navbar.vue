@@ -83,7 +83,7 @@ export default {
 
 .navbar__menu-items {
   @include z-index('menu-items');
-  
+
   background-color: var(--color-neutral-white);
   border-top: 1px solid var(--color-neutral-gray-light);
   box-shadow: 0 5px 10px var(--color-neutral-gray-light);
