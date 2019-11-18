@@ -1,13 +1,21 @@
 <template>
-  <div class="social-widget">
-    Widget
-  </div>
+  <SocialWidgetNew :channel="channel" v-if="!connected" />
 </template>
 
-<style lang="scss" scoped>
-.social-widget {
-  background-color: var(--color-neutral-gray-lighter);
-  border: 2px dotted var(--color-neutral-gray-light);
-  margin: -1px;
-}
-</style>
+<script>
+import SocialWidgetNew from './SocialWidgetNew.vue';
+
+export default {
+  props: {
+    channel: Object
+  },
+  components: {
+    SocialWidgetNew
+  },
+  computed: {
+    connected() {
+      return false;
+    }
+  }
+};
+</script>

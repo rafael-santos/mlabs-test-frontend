@@ -4,7 +4,7 @@
       <div class="row no-gutters align-items-stretch">
         <template v-for="(channel, index) in socialChannels">
           <div :key="`widget-${index}`" class="col-md-4 col-lg-3 col-xl social-widget-col">
-            <SocialWidget />
+            <SocialWidget :channel="channel" />
           </div>
           <div
             :key="`separator-${index}`"
