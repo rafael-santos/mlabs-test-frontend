@@ -1,10 +1,10 @@
 :root {
-  --color-brand-primary-deep: #143182;
+  --color-brand-primary-deep: #d31941;
   --color-brand-primary-pure: #e02b4a;
-  --color-brand-primary-clear: #97b4ff;
-  --color-brand-secondary-deep: #143182;
+  --color-brand-primary-clear: #ed3a53;
+  --color-brand-secondary-deep: #f3a800;
   --color-brand-secondary-pure: #ffb300;
-  --color-brand-secondary-clear: #97b4ff;
+  --color-brand-secondary-clear: #ffc92c;
 
   --color-font-strong: #1f2d30;
   --color-font-soft: #5e686a;
@@ -46,4 +46,8 @@
   --color-social-twitter: #1da1f2;
   --color-social-whatsapp: #25d366;
   --color-social-youtube: #ff0000;
+
+  --gradient-social-instagram: linear-gradient(45deg, #f09433 0%, #dc2743 50%, #bc1888 100%);
+  --gradient-social-whatsapp: linear-gradient(45deg, #25d366 0%, #5dfa7a 100%);
+  --gradient-social-google-my-business: linear-gradient(45deg, #4285f4 0%, #78affc 100%);
 }
