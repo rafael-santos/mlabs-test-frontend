@@ -2,7 +2,7 @@
   <div class="h-100">
     <div class="social-widget-new">
       <span v-if="channel.beta" class="badge badge--secondary badge--medium social-widget-new__badge">Beta</span>
-      <div :class="`social-widget-new__icon-container social-widget-new__icon-container--${channel.channelKey}`">
+      <div class="social-widget-new__icon-container" :class="`social-widget-new__icon-container--${channel.channelKey}`">
         <inline-svg :src="require(`@/assets/images/social_channels/${channel.channelKey}.svg`)"
           class="social-widget-new__icon"/>
         <i class="far fa-question-circle social-widget-new__help-icon"></i>

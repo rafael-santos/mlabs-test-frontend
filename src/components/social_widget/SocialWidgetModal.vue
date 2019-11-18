@@ -1,18 +1,32 @@
 <template>
-  <modal ref="modal">
+  <modal ref="modal" class="social-widget-modal">
     <template slot='header'>
       <div class="d-inline-block">
-        <div :class="`social-widget-new__header-icon-container social-widget-new__header-icon-container--${channel.channelKey}`">
+        <div class="social-widget-modal__header-icon-container" :class="`social-widget-modal__header-icon-container--${channel.channelKey}`">
           <inline-svg :src="require(`@/assets/images/social_channels/${channel.channelKey}.svg`)"
-            class="social-widget-new__header-icon"/>
+            class="social-widget-modal__header-icon"/>
         </div>
       </div>
       
       <span>Adicionar {{ channel.name }}</span>
     </template>
 
-    <template slot='content'>
-
+    <template slot='body'>
+      <Wizard
+        ref="wizard"
+        :steps="steps"
+        :onNext="nextClicked" 
+        :onBack="backClicked">
+        <div slot="page1">
+          <h4>Step 1</h4>
+        </div>
+        <div slot="page2">
+          <h4>Step 2</h4>
+        </div>
+        <div slot="page3">
+          <h4>Step 3</h4>
+        </div>
+      </Wizard>
     </template>
 
     <template slot='footer'>
@@ -29,6 +43,7 @@
 <script>
 import InlineSvg from 'vue-inline-svg';
 import Modal from '@/components/Modal.vue';
+import Wizard from '@/components/Wizard.vue';
 
 export default {
   props: {
@@ -38,18 +53,45 @@ export default {
   },
   components: {
     InlineSvg,
-    Modal
+    Modal,
+    Wizard
+  },
+  data(){
+    return {
+      steps: [
+        {
+          label: 'Perfis',
+          slot: 'page1'
+        },
+        {
+          label: 'Segmento',
+          slot: 'page2'
+        },
+        {
+          label: 'Concorrentes',
+          slot: 'page3'
+        }
+      ]
+    };
   },
   methods: {
     open() {
       this.$refs.modal.open();
+    },
+    nextClicked(currentPage) {
+      console.log('next clicked', currentPage);
+      return true; //return false if you want to prevent moving to next page
+    },
+    backClicked(currentPage) {
+      console.log('back clicked', currentPage);
+      return true; //return false if you want to prevent moving to previous page
     }
   }
 };
 </script>
 
 <style lang="scss" scoped>
-.social-widget-new__header-icon-container {
+.social-widget-modal__header-icon-container {
   @include square(30px);
   @include flex-centered;
 
@@ -59,12 +101,12 @@ export default {
 }
 
 @each $channel in $social-channels {
-  .social-widget-new__header-icon-container--#{$channel}{
+  .social-widget-modal__header-icon-container--#{$channel}{
     @include social-background-color($channel);
   }
 }
 
-.social-widget-new__header-icon {
+.social-widget-modal__header-icon {
   @include square(22px);
 
   color: var(--color-neutral-white);

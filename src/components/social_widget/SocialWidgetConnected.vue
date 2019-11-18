@@ -1,5 +1,5 @@
 <template>
-  <div :class="`social-widget-connected social-widget-connected--${channel.channelKey}`">
+  <div class="social-widget-connected" :class="`social-widget-connected--${channel.channelKey}`">
     <div class="social-widget-connected__header">
       {{ channel.name }}
     </div>
