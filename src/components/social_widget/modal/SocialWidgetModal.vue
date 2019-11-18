@@ -118,11 +118,11 @@ export default {
 
 <style lang="scss">
 .social-widget-modal .modal__dialog {
-  margin: 0 8px;
+  margin: 8px;
   max-width: 600px;
   width: 100%;
 
-  @media (min-width: $screen-sm-min) {
+  @media (min-width: $screen-md-min) {
     margin: 0;
   }
 }

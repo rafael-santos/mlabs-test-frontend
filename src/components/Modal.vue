@@ -47,10 +47,24 @@ export default {
   },
   methods: {
     open() {
+      this.disablePageScroll();
       this.isModalVisible = true;
     },
     close() {
+      this.enablePageScroll();
       this.isModalVisible = false;
+    },
+    disablePageScroll() {
+      const html = document.querySelector('html');
+      const body = document.body;
+
+      html.style.overflow = body.style.overflow = 'hidden';
+    },
+    enablePageScroll(){
+      const html = document.querySelector('html');
+      const body = document.body;
+
+      html.style.overflow = body.style.overflow = null;
     }
   }
 };
@@ -60,15 +74,21 @@ export default {
   .modal__backdrop {
     @include z-index('modal-backdrop');
 
-    align-items: center;
+    align-items: start;
     background-color: rgba(0, 0, 0, 0.2);
     bottom: 0;
     display: flex;
     justify-content: center;
     left: 0;
+    overflow-y: auto;
     position: fixed;
     right: 0;
     top: 0;
+
+    @media (min-width: $screen-md-min) {
+      margin: 0;
+      align-items: center;
+    }
   }
 
   .modal__dialog {
