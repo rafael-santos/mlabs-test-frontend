@@ -1,5 +1,5 @@
 <template>
-  <modal ref="modal" class="social-widget-modal">
+  <modal ref="modal" class="social-widget-modal" :dialogCustomClass="'social-widget-dialog'">
     <template slot='header'>
       <div class="d-inline-block">
         <div class="social-widget-modal__header-icon-container" :class="`social-widget-modal__header-icon-container--${channel.channelKey}`">
@@ -17,13 +17,13 @@
         :steps="steps"
         :onNext="nextClicked" 
         :onBack="backClicked">
-        <div slot="page1">
+        <div slot="step-1">
           <h4>Step 1</h4>
         </div>
-        <div slot="page2">
+        <div slot="step-2">
           <h4>Step 2</h4>
         </div>
-        <div slot="page3">
+        <div slot="step-3">
           <h4>Step 3</h4>
         </div>
       </Wizard>
@@ -61,15 +61,15 @@ export default {
       steps: [
         {
           label: 'Perfis',
-          slot: 'page1'
+          slot: 'step-1'
         },
         {
           label: 'Segmento',
-          slot: 'page2'
+          slot: 'step-2'
         },
         {
           label: 'Concorrentes',
-          slot: 'page3'
+          slot: 'step-3'
         }
       ]
     };
@@ -86,6 +86,9 @@ export default {
       console.log('back clicked', currentPage);
       return true; //return false if you want to prevent moving to previous page
     }
+  },
+  mounted() {
+    this.$refs.wizard.goTo(1);
   }
 };
 </script>
@@ -110,5 +113,17 @@ export default {
   @include square(22px);
 
   color: var(--color-neutral-white);
+}
+</style>
+
+<style lang="scss">
+.social-widget-modal .modal__dialog {
+  margin: 0 8px;
+  max-width: 600px;
+  width: 100%;
+
+  @media (min-width: $screen-sm-min) {
+    margin: 0;
+  }
 }
 </style>

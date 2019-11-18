@@ -33,9 +33,6 @@ export default {
 
   props: {
     steps: {},
-    previousStepLabel: {default: 'Back'},
-    nextStepLabel: {default: 'Next'},
-    finalStepLabel: {default: 'Save'},
     onNext: {},
     onBack: {}
   },
@@ -135,7 +132,7 @@ export default {
   -ms-text-justify: distribute-all-lines;
   text-justify: distribute-all-lines;
   padding:  0;
-  height:  70px;
+  margin: 30px 0;
   position:  relative;
 }
 
