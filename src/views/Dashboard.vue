@@ -21,6 +21,7 @@
 import { mapState, mapActions } from 'vuex';
 
 import SocialWidget from '@/components/social_widget/SocialWidget.vue';
+import ProfilesService from '@/services/profiles_service';
 
 export default {
   components: {
@@ -32,14 +33,9 @@ export default {
   methods: {
     ...mapActions(['addProfilesToStore'])
   },
-  mounted() {
-    fetch('https://demo2697181.mockable.io/pages', {
-      method: 'get'
-    })
-      .then(response => response.json())
-      .then((jsonResponse) => {
-        this.addProfilesToStore(jsonResponse.data);
-      });
+  async mounted() {
+    const profiles = await ProfilesService.getAllProfiles();
+    this.addProfilesToStore(profiles);
   }
 };
 </script>
