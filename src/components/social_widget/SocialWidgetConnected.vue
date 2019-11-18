@@ -1,7 +1,7 @@
 <template>
   <div class="social-widget-connected" :class="`social-widget-connected--${channel.channelKey}`">
     <div class="social-widget-connected__header">
-      {{ channel.name }}
+      {{ connectedProfile.name }}
     </div>
     <div class="social-widget-connected__body">
       <inline-svg :src="require(`@/assets/images/social_channels/${channel.channelKey}.svg`)"
@@ -11,6 +11,8 @@
 </template>
 
 <script>
+import { mapGetters } from 'vuex';
+
 import InlineSvg from 'vue-inline-svg';
 
 export default {
@@ -19,6 +21,12 @@ export default {
   },
   components: {
     InlineSvg
+  },
+  computed: {
+    connectedProfile() {
+      return this.getConnectedProfiles(this.channel.channelKey)[0];
+    },
+    ...mapGetters(['getConnectedProfiles'])
   }
 };
 </script>
@@ -49,7 +57,10 @@ export default {
 
 .social-widget-connected__header {
   background-color: rgba(0,0,0,0.2);
+  overflow: hidden;
   padding: 15px 20px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 .social-widget-connected__body {

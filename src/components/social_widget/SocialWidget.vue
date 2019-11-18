@@ -6,6 +6,8 @@
 </template>
 
 <script>
+import { mapGetters } from 'vuex';
+
 import SocialWidgetNew from '@/components/social_widget/SocialWidgetNew.vue';
 import SocialWidgetConnected from '@/components/social_widget/SocialWidgetConnected.vue';
 
@@ -19,8 +21,9 @@ export default {
   },
   computed: {
     connected() {
-      return false;
-    }
+      return this.getConnectedProfiles(this.channel.channelKey).length;
+    },
+    ...mapGetters(['getConnectedProfiles'])
   }
 };
 </script>

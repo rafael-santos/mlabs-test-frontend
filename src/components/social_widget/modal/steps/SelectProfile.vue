@@ -45,9 +45,9 @@ export default {
   },
   computed: {
     profiles() {
-      return this.profilesByChannel(this.channel.channelKey);
+      return this.getProfilesByChannel(this.channel.channelKey);
     },
-    ...mapGetters(['profilesByChannel'])
+    ...mapGetters(['getProfilesByChannel'])
   },
   methods: {
     selectProfile() {
