@@ -40,6 +40,8 @@ export default {
 }
 
 .social-widget-col {
+  margin: -1px 0;
+
   @media (min-width: $screen-lg-min) {
     max-width: 20%;
   }
