@@ -2,13 +2,14 @@
   <modal ref="modal" class="social-widget-modal" :dialogCustomClass="'social-widget-dialog'">
     <template slot='header'>
       <div class="d-inline-block">
-        <div class="social-widget-modal__header-icon-container" :class="`social-widget-modal__header-icon-container--${channel.channelKey}`">
-          <inline-svg :src="require(`@/assets/images/social_channels/${channel.channelKey}.svg`)"
-            class="social-widget-modal__header-icon"/>
+        <div class="d-flex align-items-center">
+          <div class="social-widget-modal__header-icon-container" :class="`social-widget-modal__header-icon-container--${channel.channelKey}`">
+            <inline-svg :src="require(`@/assets/images/social_channels/${channel.channelKey}.svg`)"
+              class="social-widget-modal__header-icon"/>
+          </div>
+          <span>Adicionar {{ channel.name }}</span>
         </div>
       </div>
-      
-      <span>Adicionar {{ channel.name }}</span>
     </template>
 
     <template slot='body'>
@@ -21,7 +22,11 @@
           <h4>Step 1</h4>
         </div>
         <div slot="step-2">
-          <h4>Step 2</h4>
+          <div class="text-center">
+            <p class="social-widget-modal__body-title">Selecione o perfil que deseja gerenciar</p>
+            <p class="social-widget-modal__body-text">A página que procura não está sendo exibida abaixo?</p>
+            <a href="" class="social-widget-modal__body-text d-block">Clique aqui e certifique-se de que as permissões de acesso e gerenciamento dessa página tenham sido concedidas.</a>
+          </div>
         </div>
         <div slot="step-3">
           <h4>Step 3</h4>
@@ -114,6 +119,16 @@ export default {
 
   color: var(--color-neutral-white);
 }
+
+.social-widget-modal__body-title {
+  font-size: rem(20);
+}
+
+.social-widget-modal__body-text {
+  font-size: rem(14);
+  margin: rem(8) 0;
+}
+
 </style>
 
 <style lang="scss">

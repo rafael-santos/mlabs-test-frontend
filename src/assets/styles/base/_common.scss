@@ -6,3 +6,20 @@ html {
   -moz-osx-font-smoothing: grayscale;
   -webkit-font-smoothing: antialiased;
 }
+
+a {
+  @include all-ease;
+}
+
+a,
+a:active,
+a:hover,
+a:link,
+a:visited {
+  color: var(--color-font-interactive);
+  text-decoration: none;
+}
+
+a:hover {
+  opacity: .8;
+}
