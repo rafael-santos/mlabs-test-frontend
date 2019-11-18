@@ -27,7 +27,7 @@ export default {
     SocialWidget
   },
   computed: {
-    socialChannels: mapState(['socialChannels']).socialChannels
+    ...mapState(['socialChannels'])
   },
   methods: {
     addProfilesToStore: mapActions(['addProfilesToStore']).addProfilesToStore

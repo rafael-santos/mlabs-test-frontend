@@ -15,9 +15,7 @@
     <template slot='body'>
       <Wizard
         ref="wizard"
-        :steps="steps"
-        :onNext="nextClicked" 
-        :onBack="backClicked">
+        :steps="steps">
         <div slot="step-1">
           <SelectProfile :channel="channel" @selectProfile="selectProfile"/>
         </div>
@@ -34,7 +32,7 @@
       <button class="btn btn--default" @click="$refs.modal.close()">
         Cancelar
       </button>
-      <button class="btn btn--success" :disabled="!selectedProfile">
+      <button class="btn btn--success" :disabled="!selectedProfile" @click="connectProfile()">
         Próximo
       </button>
     </template>
@@ -42,7 +40,9 @@
 </template>
 
 <script>
+import { mapActions } from 'vuex';
 import InlineSvg from 'vue-inline-svg';
+
 import Modal from '@/components/Modal.vue';
 import SelectProfile from '@/components/social_widget/modal/steps/SelectProfile.vue';
 import Wizard from '@/components/Wizard.vue';
@@ -85,14 +85,15 @@ export default {
     selectProfile(profile) {
       this.selectedProfile = profile;
     },
-    nextClicked(currentPage) {
-      console.log('next clicked', currentPage);
-      return true; //return false if you want to prevent moving to next page
+    connectProfile({ channel_key: channelKey, ...data}) {
+      const  profile = {
+        ...data,
+        channelKey
+      };
+
+      this.addProfilesToStore(profile);
     },
-    backClicked(currentPage) {
-      console.log('back clicked', currentPage);
-      return true; //return false if you want to prevent moving to previous page
-    }
+    addProfilesToStore: mapActions(['addProfilesToStore']).addProfilesToStore
   }
 };
 </script>
