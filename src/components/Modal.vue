@@ -1,6 +1,6 @@
 <template>
   <transition name="modal">
-    <div class="modal__backdrop">
+    <div v-show="isModalVisible" class="modal__backdrop">
       <div class="modal__dialog" role="dialog" aria-labelledby="modalTitle" aria-describedby="modalDescription">
         <header id="modalTitle" class="modal__header">
           <slot name="header">
@@ -40,9 +40,17 @@
 <script>
 export default {
   name: 'Modal',
+  data() {
+    return {
+      isModalVisible: false
+    };
+  },
   methods: {
+    open() {
+      this.isModalVisible = true;
+    },
     close() {
-      this.$emit('close');
+      this.isModalVisible = false;
     }
   }
 };

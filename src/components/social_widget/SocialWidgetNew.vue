@@ -8,11 +8,11 @@
         <i class="far fa-question-circle social-widget-new__help-icon"></i>
       </div>
       <div class="social-widget-new__name my-3">{{ channel.name }}</div>
-      <button class="btn btn--primary" @click="showModal">
+      <button class="btn btn--primary" @click="$refs.socialWidgetModal.open()">
         Adicionar
       </button>
     </div>
-    <SocialWidgetModal v-show="isModalVisible" :channel="channel" :close="closeModal"/>
+    <SocialWidgetModal ref="socialWidgetModal" :channel="channel"/>
   </div>
 </template>
 
@@ -27,19 +27,6 @@ export default {
   components: {
     InlineSvg,
     SocialWidgetModal
-  },
-  data() {
-    return {
-      isModalVisible: false
-    };
-  },
-  methods: {
-    showModal() {
-      this.isModalVisible = true;
-    },
-    closeModal() {
-      this.isModalVisible = false;
-    }
   }
 };
 </script>

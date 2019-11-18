@@ -1,5 +1,5 @@
 <template>
-  <modal @close="close">
+  <modal ref="modal">
     <template slot='header'>
       <div class="d-inline-block">
         <div :class="`social-widget-new__header-icon-container social-widget-new__header-icon-container--${channel.channelKey}`">
@@ -11,8 +11,12 @@
       <span>Adicionar {{ channel.name }}</span>
     </template>
 
+    <template slot='content'>
+
+    </template>
+
     <template slot='footer'>
-      <button class="btn btn--default" @click="close">
+      <button class="btn btn--default" @click="$refs.modal.close()">
         Cancelar
       </button>
       <button class="btn btn--success">
@@ -35,6 +39,11 @@ export default {
   components: {
     InlineSvg,
     Modal
+  },
+  methods: {
+    open() {
+      this.$refs.modal.open();
+    }
   }
 };
 </script>
