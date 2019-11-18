@@ -1,0 +1,6 @@
+@mixin social-background-color($key) {
+  z-index: z-index($key);
+
+  background-color: var(--color-social-#{$key});
+  background-image: var(--gradient-social-#{$key});
+}
