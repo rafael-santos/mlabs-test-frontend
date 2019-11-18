@@ -6,8 +6,8 @@
 </template>
 
 <script>
-import SocialWidgetNew from './SocialWidgetNew.vue';
-import SocialWidgetConnected from './SocialWidgetConnected.vue';
+import SocialWidgetNew from '@/components/social_widget/SocialWidgetNew.vue';
+import SocialWidgetConnected from '@/components/social_widget/SocialWidgetConnected.vue';
 
 export default {
   props: {
@@ -19,7 +19,7 @@ export default {
   },
   computed: {
     connected() {
-      return true;
+      return false;
     }
   }
 };

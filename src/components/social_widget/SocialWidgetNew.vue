@@ -1,27 +1,47 @@
 <template>
-  <div class="social-widget-new">
-    <span v-if="channel.beta" class="badge badge--secondary badge--medium social-widget-new__badge">Beta</span>
-    <div :class="`social-widget-new__icon-container social-widget-new__icon-container--${channel.channelKey}`">
-      <inline-svg :src="require(`@/assets/images/social_channels/${channel.channelKey}.svg`)"
-        class="social-widget-new__icon"/>
-      <i class="far fa-question-circle social-widget-new__help-icon"></i>
+  <div class="h-100">
+    <div class="social-widget-new">
+      <span v-if="channel.beta" class="badge badge--secondary badge--medium social-widget-new__badge">Beta</span>
+      <div :class="`social-widget-new__icon-container social-widget-new__icon-container--${channel.channelKey}`">
+        <inline-svg :src="require(`@/assets/images/social_channels/${channel.channelKey}.svg`)"
+          class="social-widget-new__icon"/>
+        <i class="far fa-question-circle social-widget-new__help-icon"></i>
+      </div>
+      <div class="social-widget-new__name my-3">{{ channel.name }}</div>
+      <button class="btn btn--primary" @click="showModal">
+        Adicionar
+      </button>
     </div>
-    <div class="social-widget-new__name my-3">{{ channel.name }}</div>
-    <button class="btn btn--primary">
-      Adicionar
-    </button>
+    <modal v-show="isModalVisible" @close="closeModal">
+      <div slot='header'>Nome da modal</div>
+    </modal>
   </div>
 </template>
 
 <script>
 import InlineSvg from 'vue-inline-svg';
+import Modal from '@/components/Modal.vue';
 
 export default {
   props: {
     channel: Object
   },
+  data () {
+    return {
+      isModalVisible: false
+    };
+  },
   components: {
-    InlineSvg
+    InlineSvg,
+    Modal
+  },
+  methods: {
+    showModal() {
+      this.isModalVisible = true;
+    },
+    closeModal() {
+      this.isModalVisible = false;
+    }
   }
 };
 </script>

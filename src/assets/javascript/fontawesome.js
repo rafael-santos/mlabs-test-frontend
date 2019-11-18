@@ -4,14 +4,16 @@ import { library, dom } from '@fortawesome/fontawesome-svg-core';
 import { faCog } from '@fortawesome/free-solid-svg-icons/faCog';
 import { faChevronDown } from '@fortawesome/free-solid-svg-icons/faChevronDown';
 import { faBars } from '@fortawesome/free-solid-svg-icons/faBars';
+import { faTimes } from '@fortawesome/free-solid-svg-icons/faTimes';
 
 library.add(
   faCog,
   faChevronDown,
-  faBars
+  faBars,
+  faTimes
 );
 
-// Brands
+// Regular
 import { faQuestionCircle } from '@fortawesome/free-regular-svg-icons/faQuestionCircle';
 library.add(faQuestionCircle);
 
