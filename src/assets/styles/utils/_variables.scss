@@ -33,7 +33,8 @@ $screen-md-max: $screen-lg-min - 1 !default;
 // Reference: https://jonsuh.com/blog/organizing-z-index-with-sass/
 
 $z-index: ();
-$z-index: map-merge($z-index, (modal-backdrop: 100));
+$z-index: map-merge($z-index, (menu-items: 100));
+$z-index: map-merge($z-index, (modal-backdrop: 200));
 
 $social-channels:
   'facebook',

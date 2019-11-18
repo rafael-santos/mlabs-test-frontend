@@ -64,6 +64,7 @@ export default {
 .navbar-item__label {
   @include all-ease;
 
+  color: var(--color-neutral-gray-darkest);
   font-family: $prime-family;
   font-size: rem(13);
   opacity: 0;
