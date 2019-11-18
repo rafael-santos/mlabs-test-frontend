@@ -1,5 +1,6 @@
 <template>
   <div class="social-widget-new">
+    <span v-if="channel.beta" class="badge badge--secondary badge--medium social-widget-new__badge">Beta</span>
     <div :class="`social-widget-new__icon-container social-widget-new__icon-container--${channel.channelKey}`">
       <inline-svg :src="require(`@/assets/images/social_channels/${channel.channelKey}.svg`)"
         class="social-widget-new__icon"/>
@@ -35,6 +36,12 @@ export default {
   height: 100%;
   margin: 0 -1px;
   padding: 20px;
+}
+
+.social-widget-new__badge {
+  position: absolute;
+  right: 10px;
+  top: 10px;
 }
 
 .social-widget-new__icon-container {
