@@ -57,7 +57,7 @@ export default {
 }
 
 .navbar-item__icon {
-  color: var(--color-neutral-gray-clear);
+  color: var(--color-neutral-gray-pure);
   font-size: 0;
 }
 
