@@ -31,9 +31,15 @@ export default {
     ...mapState(['socialChannels'])
   },
   methods: {
-    ...mapActions(['addProfilesToStore'])
+    ...mapActions([
+      'addProfilesToStore',
+      'addConnectedProfilesToStore'
+    ])
   },
   async mounted() {
+    const connectedProfiles = ProfilesService.getConnectedProfiles();
+    this.addConnectedProfilesToStore(connectedProfiles);
+
     const profiles = await ProfilesService.getAllProfiles();
     this.addProfilesToStore(profiles);
   }
