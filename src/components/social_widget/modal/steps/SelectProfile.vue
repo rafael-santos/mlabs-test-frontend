@@ -10,7 +10,7 @@
     <ul class="select-profile-list">
       <li v-for="(profile, index) in profiles" :key="index" class="select-profile-list__item">
         <label class="d-flex align-items-center">
-          <input type="radio" name="selected_profile_id" :value="profile.id"/>
+          <input type="radio" name="selected_profile_id" v-model="selectedProfile" :value="profile" @change="selectProfile"/>
           <div class="select-profile-list__item-picture" :style="profile.picture ? `background-image: url('${profile.picture}')` : ''"></div>
           <div class="text-left">
             <div class="select-profile-list__item-name">{{ profile.name }}</div>
@@ -32,9 +32,19 @@ export default {
   props: {
     channel: Object
   },
+  data() {
+    return {
+      selectedProfile: null
+    };
+  },
   computed: {
     profiles: function() {
       return this.$store.getters.profilesByChannel(this.channel.channelKey);
+    }
+  },
+  methods: {
+    selectProfile() {
+      this.$emit('selectProfile', this.selectedProfile);
     }
   }
 };

@@ -19,7 +19,7 @@
         :onNext="nextClicked" 
         :onBack="backClicked">
         <div slot="step-1">
-          <SelectProfile :channel="channel"/>
+          <SelectProfile :channel="channel" @selectProfile="selectProfile"/>
         </div>
         <div slot="step-2">
           <h4>Step 2</h4>
@@ -34,7 +34,7 @@
       <button class="btn btn--default" @click="$refs.modal.close()">
         Cancelar
       </button>
-      <button class="btn btn--success">
+      <button class="btn btn--success" :disabled="!selectedProfile">
         Próximo
       </button>
     </template>
@@ -74,12 +74,16 @@ export default {
           label: 'Concorrentes',
           slot: 'step-3'
         }
-      ]
+      ],
+      selectedProfile: null
     };
   },
   methods: {
     open() {
       this.$refs.modal.open();
+    },
+    selectProfile(profile) {
+      this.selectedProfile = profile;
     },
     nextClicked(currentPage) {
       console.log('next clicked', currentPage);

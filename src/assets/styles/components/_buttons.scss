@@ -18,6 +18,11 @@ $button-colors: (
   padding: 10px 12px;
 }
 
+.btn[disabled] {
+  opacity: .8;
+  pointer-events: none;
+}
+
 .btn--default {
   background-color: transparent;
   border: 1px solid var(--color-neutral-gray-light);
