@@ -37,21 +37,9 @@ export default {
     onBack: {}
   },
 
-  watch: {
-    steps: {
-      handler() {
-        this.parseOptions();
-      },
-      immediate: true
-    }
-  },
-
   data () {
     return {
-      currentStep: 0,
-      isMounted: false,
-      resizer: null,
-      options: []
+      currentStep: 0
     };
   },
   computed: {
@@ -105,13 +93,6 @@ export default {
         && step < this.steps.length
         && step >= 0) {
         this.currentStep = step;
-      } 
-    },
-    
-    parseOptions() {
-      this.options = [];
-      for(let i = 0; i < this.steps.length; i++) {
-        this.options.push(this.steps[i].options ? this.steps[i].options : {});
       } 
     }
   }

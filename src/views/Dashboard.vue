@@ -18,7 +18,7 @@
 </template>
 
 <script>
-import { mapState } from 'vuex';
+import { mapState, mapActions } from 'vuex';
 
 import SocialWidget from '@/components/social_widget/SocialWidget.vue';
 
@@ -27,9 +27,19 @@ export default {
     SocialWidget
   },
   computed: {
-    socialChannels() {
-      return this.$store.state.socialChannels;
-    }
+    socialChannels: mapState(['socialChannels']).socialChannels
+  },
+  methods: {
+    addProfilesToStore: mapActions(['addProfilesToStore']).addProfilesToStore
+  },
+  mounted() {
+    fetch('https://demo2697181.mockable.io/pages', {
+      method: 'get'
+    })
+      .then((response) => response.json())
+      .then((jsonResponse) => {
+        this.addProfilesToStore(jsonResponse.data);
+      });
   }
 };
 </script>
