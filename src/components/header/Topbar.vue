@@ -22,7 +22,7 @@
 <script>
 export default {
   name: 'Topbar'
-}
+};
 </script>
 
 <style lang="scss">
