@@ -39,7 +39,7 @@ describe('getProfilesByChannel', () => {
   });
 });
 
-describe.only('getConnectedProfiles', () => {
+describe('getConnectedProfiles', () => {
   it('returns only profiles with specified channelKey', () => {
     const channelKey = 'facebook';
 
