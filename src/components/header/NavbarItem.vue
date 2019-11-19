@@ -18,6 +18,7 @@
 import InlineSvg from 'vue-inline-svg';
 
 export default {
+  name: 'NavbarItem',
   props: {
     to: String,
     label: String,

@@ -24,6 +24,7 @@ import SocialWidget from '@/components/social_widget/SocialWidget.vue';
 import ProfilesService from '@/services/profiles_service';
 
 export default {
+  name: 'Dashboard',
   components: {
     SocialWidget
   },

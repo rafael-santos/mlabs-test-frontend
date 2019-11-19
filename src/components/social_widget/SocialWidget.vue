@@ -12,6 +12,7 @@ import SocialWidgetNew from '@/components/social_widget/SocialWidgetNew.vue';
 import SocialWidgetConnected from '@/components/social_widget/SocialWidgetConnected.vue';
 
 export default {
+  name: 'SocialWidget',
   props: {
     channel: Object
   },

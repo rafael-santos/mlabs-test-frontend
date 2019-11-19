@@ -19,6 +19,12 @@
   </div>
 </template>
 
+<script>
+export default {
+  name: 'Topbar'
+}
+</script>
+
 <style lang="scss">
 .topbar {
   background-color: var(--color-neutral-gray-darker);

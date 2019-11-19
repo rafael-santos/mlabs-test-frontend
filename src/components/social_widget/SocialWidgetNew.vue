@@ -25,6 +25,7 @@ import InlineSvg from 'vue-inline-svg';
 import SocialWidgetModal from '@/components/social_widget/modal/SocialWidgetModal.vue';
 
 export default {
+  name: 'SocialWidgetNew',
   props: {
     channel: Object
   },

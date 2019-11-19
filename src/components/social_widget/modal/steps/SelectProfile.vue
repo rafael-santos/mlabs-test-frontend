@@ -35,6 +35,7 @@
 import { mapGetters } from 'vuex';
 
 export default {
+  name: 'SelectProfile',
   props: {
     channel: Object
   },

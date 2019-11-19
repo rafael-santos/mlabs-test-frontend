@@ -49,6 +49,7 @@ import SelectProfile from '@/components/social_widget/modal/steps/SelectProfile.
 import Wizard from '@/components/Wizard.vue';
 
 export default {
+  name: 'SocialWidgetModal',
   props: {
     channel: Object,
     visible: Boolean,

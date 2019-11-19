@@ -16,6 +16,7 @@ import { mapGetters } from 'vuex';
 import InlineSvg from 'vue-inline-svg';
 
 export default {
+  name: 'SocialWidgetConnected',
   props: {
     channel: Object
   },

@@ -53,6 +53,7 @@
 import NavbarItem from '@/components/header/NavbarItem.vue';
 
 export default {
+  name: 'Navbar',
   components: {
     NavbarItem
   }
